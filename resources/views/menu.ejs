@@ -1,0 +1,245 @@
+<!-- <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css"
+    integrity="sha256-x8PYmLKD83R9T/sYmJn1j3is/chhJdySyhet/JuHnfY="
+    crossorigin="anonymous"
+  />
+  <script src="https://kit.fontawesome.com/68eaa4bd14.js" crossorigin="anonymous"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.4.0/tailwind.min.css"
+    integrity="sha256-CAI/7ThhltsmP2L2zKBYa7FknB3ZwFbD0nqL8FCdxdc="
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap");
+      @media (min-width: 1024px) {
+        .top-navbar {
+          display: -webkit-inline-box !important;
+          display: -ms-inline-flexbox !important;
+          display: inline-flex !important;
+        }
+      }
+      </style>
+</head>
+
+<body>
+  <nav class="flex items-center flex-wrap">
+    <a href="#" class="p-2 mr-4 inline-flex items-center">
+      <img src="/img/sizzlo_logo.png" class="h-10">
+    </a>
+    <button
+      class="text-black inline-flex p-3 hover:bg-orange-500 mx-3 rounded lg:hidden ml-auto hover:text-white outline-none nav-toggler"
+      data-target="#navigation"
+    >
+    <i class="material-icons">menu</i>
+    </button>
+    <div
+      class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto"
+      id="navigation"
+    >
+      <div id="menu"
+        class="mx-3 px-9 py-2.5lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start flex flex-col lg:h-auto"
+      >
+      <a
+      href="/"
+      class="mx-3 lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-black font-medium font-awesome items-center justify-center hover:bg-orange-500 hover:text-white"
+    >
+      <span>Home</span>
+    </a>
+        <a
+          href="/menu"
+          class="mx-3 lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-black font-medium font-awesome items-center justify-center hover:bg-orange-500 hover:text-white"
+        >
+          <span>Menu</span>
+        </a>
+        <a
+          href="#footer"
+          class="mx-3 lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-black font-medium font-awesome items-center justify-center hover:bg-orange-500 hover:text-white"
+        >
+          <span>Contact Us</span>
+        </a>
+        
+        
+          <a
+          href="/cart"
+          class=" mx-3 lg:inline-flex lg:w-auto w-full px-5  py-3 rounded text-black font-medium font-awesome items-center justify-center hover:bg-orange-500 hover:text-white"
+        ><span class="pr-2"><%= session.cart? session.cart.totalQty: ' ' %></span><i class=" w-4 h-4  dark:text-white fa-solid fa-cart-shopping"></i></a>
+        
+
+        <a href="/login" id="login" >
+          <button
+            type="button"
+            class="px-4 py-2 mx-3 inline-block  border-2 px-5 py-2 border-orange-400 text-orange-500 font-semibold text-xs leading-tight uppercase rounded hover:bg-orange-500 hover:text-white hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+            LOG IN
+          </button>
+          </a>
+         
+           
+          <a href="/register" id="signup" >
+              <button
+                type="button"
+                class="px-4 py-2 mx-3 inline-block  border-2 px-5 py-2 border-orange-400 text-orange-500 font-semibold text-xs leading-tight uppercase rounded hover:bg-orange-500 hover:text-white hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+                Sign Up
+              </button>
+              </a>
+              
+
+      </div>
+    </div>
+   
+  </nav> -->
+ 
+<!-- <div class="flex overflow-x-hidden justify-center flex-wrap">
+    <%menuItems.forEach(function(menuItems){%>
+        <div class=" bg-gray-100 rounded-xl drop-shadow-2xl ml-6 mt-6 mb-6 mr-6 hover:-translate-y-1 hover:scale-110 w-1/5 hover:ounded-t-md w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 bg-gray-100 rounded-xl drop-shadow-2xl ml-6 mt-6 mb-6 mr-6 hover:-translate-y-1 hover:scale-110 w-1/5 hover:ounded-t-md">
+            <div class="flex justify-center">
+                <img class="max-h-48 min-w-full rounded-t-md" src="/img/<%=menuItems.image%>" alt="">
+            </div>
+            <div class="px-5 pb-5">
+                <a href="#">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 py-4"><%=menuItems.name%></h5>
+                </a>
+                <p class="text-sm"><%=menuItems.description%></p>
+                <div class="flex justify-between items-center">
+                    <span class="text-3xl font-bold text-gray-900">₹<%=menuItems.price%></span>
+                    <a href="#" data-menu="<%= JSON.stringify(menuItems)%>" 
+                        class="add-to-cart text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Add to cart</a>
+                </div>
+            </div>
+        </div>
+    <%})%>
+
+ -->
+
+  <!-- yaha tak hai -->
+
+    <!-- <div class="flex overflow-x-hidden justify-center flex-wrap">
+        <%menuItems.forEach(function(menuItems){%>
+        <div class="w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 bg-gray-100 rounded-xl drop-shadow-2xl ml-6 mt-6 mb-6 mr-6 hover:-translate-y-1 hover:scale-110 w-1/5 hover:ounded-t-md ">
+        <a href="#">
+        <img class="max-h-48 min-w-full  rounded-t-lg" src="/img/<%=menuItems.image%>" alt="product image">
+        </a>
+    <div class="px-5 pb-5">
+        <h5 class="text-xl font-semibold tracking-tight text-gray-900 py-2"><%=menuItems.name%></h5>
+        <a href="#">
+            <h5 class="text-sm"><%=menuItems.description%></h5>
+        </a>
+        <div class="flex justify-between items-center inline-block align-bottom">
+            <span class="text-3xl font-bold text-gray-900 dark:text-white">₹<%=menuItems.price%></span>
+            <a href="#" data-menu="<%= JSON.stringify(menuItems)%>" 
+                class="add-to-cart text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Add to cart</a>
+        </div>
+    </div>
+</div>
+<%})%>
+</div> -->
+
+
+    <!-- <body class="antialiased bg-gray-200 text-gray-900 font-sans p-6">
+        <div class="container mx-auto">
+          <div class="flex flex-wrap -mx-4">
+            <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+              <a href="" class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
+              <div class="relative pb-48 overflow-hidden">
+                <img class="absolute inset-0 h-full w-full object-cover" src="https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="">
+              </div>
+              <div class="p-4">
+                <span class="inline-block px-2 py-1 leading-none bg-orange-200 text-orange-800 rounded-full font-semibold uppercase tracking-wide text-xs">Highlight</span>
+                <h2 class="mt-2 mb-2  font-bold">Purus Ullamcorper Inceptos Nibh</h2>
+                <p class="text-sm">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                <div class="mt-3 flex items-center">
+                  <span class="text-sm font-semibold">ab</span>&nbsp;<span class="font-bold text-xl">45,00</span>&nbsp;<span class="text-sm font-semibold">€</span>
+                </div>
+                <a href="#" data-menu="<%= JSON.stringify(menuItems)%>" 
+                    class="add-to-cart text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Add to cart</a>
+              </div>
+            </a>
+      </body> -->
+
+
+  <!-- phir yaha se -->
+<!-- </div>
+<script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+        $(document).ready(function () {
+        $(".nav-toggler").each(function (_, navToggler) {
+        var target = $(navToggler).data("target");
+        $(navToggler).on("click", function () {
+        $(target).animate({
+        height: "toggle",
+        });
+        });
+    });
+    });
+    </script>
+<script src="/js/app.js"></script>
+</body>
+</html>
+
+
+
+ <div class="flex overflow-x-hidden justify-center flex-wrap">
+  <%menuItems.forEach(function(menuItems){%>
+      <div class=" bg-gray-100 rounded-xl drop-shadow-2xl ml-6 mt-6 mb-6 mr-6 hover:-translate-y-1 hover:scale-110 w-1/5 ">
+          <div class="flex justify-center">
+              <img class="p-8 rounded-t-lg w-4/6" src="/img/<%=menuItems.image%>" alt="">
+          </div>
+          <div class="px-5 pb-5">
+              <a href="#">
+                  <!-- <h5 class="text-xl font-semibold tracking-tight text-gray-900">Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport</h5> -->
+                  <!-- <h5 class="text-xl font-semibold tracking-tight text-gray-900"><%=menuItems.name%></h5>
+
+              </a>
+              <div class="flex justify-between items-center pt-4">
+                  <span class="text-3xl font-bold text-gray-900"><%=menuItems.price%></span>
+                  <a href="#" data-menu="<%= JSON.stringify(menuItems)%>" 
+                      class="add-to-cart text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Add to cart</a>
+              </div>
+          </div>
+      </div>
+  <%})%>
+
+</div> --> 
+
+
+<div class="flex overflow-x-hidden justify-center flex-wrap">
+  <%menuItems.forEach(function(menuItems){%>
+      <div class=" bg-gray-100 rounded-xl drop-shadow-2xl ml-6 mt-6 mb-6 mr-6 hover:-translate-y-1 hover:scale-110 w-1/5 hover:ounded-t-md w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 bg-gray-100 rounded-xl drop-shadow-2xl ml-6 mt-6 mb-6 mr-6 hover:-translate-y-1 hover:scale-110 w-1/5 hover:ounded-t-md">
+          <div class="flex justify-center">
+              <img class="max-h-48 min-w-full rounded-t-md" src="/img/<%=menuItems.image%>" alt="">
+          </div>
+          <div class="px-5 pb-5">
+              <a href="#">
+                  <h5 class="text-xl font-semibold tracking-tight text-gray-900 py-4"><%=menuItems.name%></h5>
+              </a>
+              <p class="text-sm"><%=menuItems.description%></p>
+              <div class="flex justify-between items-center">
+                  <span class="text-3xl font-bold text-gray-900">₹<%=menuItems.price%></span>
+                  <a href="#" data-menu="<%= JSON.stringify(menuItems)%>" 
+                      class="add-to-cart text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Add to cart</a>
+              </div>
+          </div>
+      </div>
+  <%})%>
+</div>
+
+
+<!-- <div class="container mx-auto flex flex-col lg:flex-row items-center gap-12">
+<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+  <div class="flex justify-center">
+  <img class="max-h-48 min-w-48 rounded-t-md" src="/img/chole.png" alt="">
+</div>
+  <div class="p-5">
+    <a href="#">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Chole Bhature </h5>
+    </a>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Chole Bhature is one of the mouth-watering, spicy, exotic dish from Punjabi Cuisine</p>
+  </div>  
+</div>
+
+</div> -->
