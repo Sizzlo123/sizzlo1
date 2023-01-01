@@ -55,9 +55,13 @@ function orderController(){
             return res.render('customer/singleOrder', { order })
         }
         return  res.redirect('/')
-    }
-    }
-
+    },
+    
+        notlogin(req,res)
+        {
+            res.render('customer/notlogin');
+        }
+}
    
 }
 

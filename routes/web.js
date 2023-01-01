@@ -5,7 +5,8 @@ const menuController=require("../app/http/controllers/menuController");
 const orderController=require("../app/http/controllers/customer/orderController");
 const adminorderController=require("../app/http/controllers/admin/orderController");
 const statusController=require("../app/http/controllers/admin/statusController");
-
+const orderplacedController=require("../app/http/controllers/customer/orderplacedController");
+// const paymentController=require("../app/http/controllers/paymentController");
 
 const guest= require('../app/http/middleware/guest');
 const auth=require('../app/http/middleware/auth');
@@ -35,11 +36,16 @@ function initRoutes(app)
     app.post('/orders',auth,orderController().store)
     app.get('/customer/orders',auth, orderController().index)
     app.get('/customer/orders/:_id',auth, orderController().show)
+    app.get('/customer/notlogin',orderController().notlogin)
 
+    app.get('/customer/orderplaced',orderplacedController().index)
 
     //admin routes
     app.get('/admin/orders',admin, adminorderController().index)
     app.post('/admin/order/status',admin, statusController().update)
+
+    //payment routes
+    // app.post('/payment',paymentController().index)
 
 
 

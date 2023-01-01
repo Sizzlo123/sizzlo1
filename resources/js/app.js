@@ -1,5 +1,5 @@
 import axios from 'axios'
-import Noty from 'noty'
+import Noty, { button } from 'noty'
 import {initAdmin} from './admin'
 import moment from 'moment'
 
@@ -78,8 +78,6 @@ function updateStatus(order){
    
 }
 updateStatus(order);
-
-
 
 //socket
 let socket= io()
