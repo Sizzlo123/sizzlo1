@@ -11,10 +11,11 @@ const orderplacedController=require("../app/http/controllers/customer/orderplace
 const guest= require('../app/http/middleware/guest');
 const auth=require('../app/http/middleware/auth');
 const admin=require('../app/http/middleware/admin');
+const authguest=require('../app/http/middleware/authguest');
 
 function initRoutes(app)
 {   
-    app.get('/',homeController().index)
+    app.get('/',authguest,homeController().index)
 
     app.get('/login',guest,authController().login)
     app.post('/login',authController().postLogin)
@@ -27,14 +28,18 @@ function initRoutes(app)
     app.post('/logout',authController().logout)
 
 
-    app.get('/menu',menuController().index)
+    app.get('/menu',authguest,menuController().index)
+    app.get('/menu-van',authguest,menuController().menuvan)
+    app.get('/menu-ramjihatti',authguest,menuController().menuramjihatti)
+    app.get('/menu-shakes',authguest,menuController().menushake)
 
-    app.get('/cart',cartController().index)
+
+    app.get('/cart',authguest,cartController().index)
     app.post('/update-cart',cartController().update)
 
     //customer routes
     app.post('/orders',auth,orderController().store)
-    app.get('/customer/orders',auth, orderController().index)
+    app.get('/customer/orders',authguest, orderController().index)
     app.get('/customer/orders/:_id',auth, orderController().show)
     app.get('/customer/notlogin',orderController().notlogin)
 

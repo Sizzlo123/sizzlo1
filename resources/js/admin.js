@@ -28,6 +28,18 @@ export function initAdmin(socket) {
         }).join('')
       }
 
+    function time(time){
+        if(time)
+        return time;
+        else
+        return "Instant Delivery";
+    }
+
+    function delivery(delivery){
+        if(delivery)
+        return delivery
+    }
+
     function generateMarkup(orders) {
         return orders.map(order => {
             return `
@@ -37,7 +49,13 @@ export function initAdmin(socket) {
                     <div>${ renderItems(order.items) }</div>
                 </td>
                 <td class="border px-4 py-2">${ order.customerId.name}</td>
-                <td class="border px-4 py-2">${ order.address }</td>
+                <td class="border px-4 py-2">
+                <p>${ order.address }</p>
+                <p>${order.phone}</p>
+                </td>
+                <td class="border px-4 py-2">${order.specialInstructions}</td>
+                <td class="border px-4 py-2">${order.deliveryInstructions1}<br>${order.deliveryInstructions2}<br>${order.deliveryInstructions3}<br>${order.deliveryInstructions4}</td>
+                <td class="border px-4 py-2">${time(order.appttime)}</td>
                 <td class="border px-4 py-2">
                     <div class="inline-block relative w-64">
                         <form action="/admin/order/status" method="POST">
@@ -72,8 +90,9 @@ export function initAdmin(socket) {
                 <td class="border px-4 py-2">
                     ${ moment(order.createdAt).format('hh:mm A') }
                 </td>
+                <td class="border px-4 py-2">${order.amount}</td>
                 <td class="border px-4 py-2">
-                    ${ order.paymentStatus ? 'paid' : 'Not paid' }
+                    ${order.paymentType}
                 </td>
             </tr>
         `

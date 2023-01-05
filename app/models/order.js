@@ -10,9 +10,14 @@ const orderSchema= new Schema({
     items: {type: Object,required: true},
     phone: {type: String,required: true},
     address: {type: String,required: true},
-    // specialInstructions:{type: String,required: true},
-    // paymentType:{type: String,required: true},
-    paymentType:{type: String,default: 'COD' },
+    specialInstructions: {type: String, default:" "},
+    deliveryInstructions1: {type: String,default: ""},
+    deliveryInstructions2: {type: String,default: ""},
+    deliveryInstructions3: {type: String,default: ""},
+    deliveryInstructions4: {type: String,default: ""},
+    appttime: {type: String,default: "Instant Delivery"},
+    amount: {type: String,default: " "},
+    paymentType: {type: String,default: " " },
     status: {type: String,default: 'order_placed'},
 },{timestamps: true})
 

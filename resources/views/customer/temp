@@ -164,6 +164,9 @@ paymentType.addEventListener('change',(e)=>{
 </div>
 
 
+${ order.paymentStatus ? 'paid' : 'Not paid' }
+
+
 
 
 

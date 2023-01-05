@@ -1,24 +1,26 @@
 <section class="orders light-section px-16">
         <div class="container mx-auto pt-12">
-            <h1 class="font-bold text-lg mb-4">All orders</h1>
+            
             <% if(messages.success){ %>
             <div id="success-alert" class="flex items-center bg-green-500 text-white text-sm font-bold px-4 py-3" role="alert">
                 <i class="fa-solid fa-info"></i>
                 <p class="px-4"><%= messages.success %></p>
             </div>
             <% } %>
-           <table class="w-full table-auto bg-white">
-            <thead>
-                <tr>
-                    <th class="px-4 py-2 text-left">Orders</th>
-                    <th class="px-4 py-2 text-left">Phone</th>
-                    <th class="px-4 py-2 text-left">Address</th>
-                    <th class="px-4 py-2 text-left">Time</th> 
-                </tr>
-            </thead>
-    
-            <tbody>
+           
                 <% if(orders.length){ %>
+                    <h1 class="font-bold text-lg mb-4">All orders</h1>
+                    <table class="w-full table-auto bg-white">
+                        <thead>
+                            <tr>
+                                <th class="px-4 py-2 text-left">Orders</th>
+                                <th class="px-4 py-2 text-left">Phone</th>
+                                <th class="px-4 py-2 text-left">Address</th>
+                                <th class="px-4 py-2 text-left">Time</th> 
+                            </tr>
+                        </thead>
+                
+                        <tbody>
                     <% orders.forEach(function(order) { %>
                 <tr>
                     <td class="border px-4 py-2">
@@ -36,9 +38,19 @@
                 </tr>
                 <% }); %>
                 <% }else{%>
-                    <tr>
-                        <td class="p-4"><span>No orders Found !</span></td>
-                    </tr>
+                    <<div class="empty-cart py-8">
+                        <div class="container mx-auto text-center">
+                            <h1 class="text-3xl font-bold mb-2">You don't have order yet😒</h1>
+                            <p class="text-gray-400">You Probably haven't orderd yet.
+                                <br>
+                                For order,go to the main page.
+                            </p>
+                            <img src="/img/empty-cart.png" alt="empty-cart" class="w-2/5 mx-auto mt-4">
+                            <div class="mt-8">
+                            <a href="/" class="text-white bg-orange-500 hover:bg-orange-600 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2">Go Back</a>
+                            </div>
+                        </div>
+                    </div>
                 <% } %>
             </tbody>
         </table>

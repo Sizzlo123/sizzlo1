@@ -10,14 +10,22 @@ function orderController(){
            if(!phone || !address)
            {
                 req.flash('error','All fields are required')
-                return res.redirect('/cart')
+                return res.redirect('/customer/orderplaced')
            }
 
             const order = new Order({
                 customerId: req.user._id,
                 items: req.session.cart.items,
                 phone,
-                address
+                address,
+                specialInstructions: req.body.specialInstructions,
+                deliveryInstructions1: req.body.deliveryInstructions1,
+                deliveryInstructions2: req.body.deliveryInstructions2,
+                deliveryInstructions3: req.body.deliveryInstructions3,
+                deliveryInstructions4: req.body.deliveryInstructions4,
+                appttime: req.body.appttime,
+                amount:req.session.cart.totalPrice,
+                paymentType: req.body.paymentType
             })
 
             order.save().then(result=>{
@@ -34,7 +42,7 @@ function orderController(){
            
            }).catch(err=>{
             req.flash('error','Something went wrong')
-            return res.redirect('/cart')
+            return res.redirect('/customer/orderplaced')
            })
 
         },
