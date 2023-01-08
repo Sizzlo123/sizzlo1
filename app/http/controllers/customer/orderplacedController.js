@@ -4,6 +4,9 @@ function orderplacedController()
         index(req,res)
         {
             res.render('customer/orderplaced');
+        },
+        terms(req,res){
+            res.render('terms');
         }
     }
 }

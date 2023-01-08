@@ -1,7 +1,6 @@
 <section class="cart bg-gray-100 py-16">
-
   <% if(session.cart) { %>
-   <div class="order container mx-auto w-1/2">
+   <div class="order container mx-auto px-4 xl:w-1/2">
        <div class="flex items-center border-b border-gray-300 pb-4">
           <img src="/img/cart-black.png" alt="cart">
           <h1 class="font-bold ml-4 text-2xl">Order Summary</h1>
@@ -9,12 +8,10 @@
       <% for(let menu of Object.values(session.cart.items)) { %>
        <div class="menu-list">
           <div class="flex items-center my-8">
-              <img class="h-16 w-24" src="/img/<%= menu.items.image %>" alt="" class="w-24 pr-4">
-              <div class="flex-1 ">
-                  <h1 class="px-4"><%= menu.items.name %></h1>
-                  <span><%= menu.items.size%></span>
-              </div>
-              <span class="flex-1"><%= menu.qty %></span>
+            <div class="flex-1 px-1 xl:px-4"><img class="h-16 w-24 pr-4" src="/img/<%= menu.items.image %>" alt=""></div>
+              <div class="flex-1 px-1 xl:px-4"><h1><%= menu.items.name %></h1></div>
+              <div class="flex-1 px-1 xl:px-8"><span><%= menu.items.restaurant_name %></span></div>
+              <div class="flex-1 px-1 xl:px-4"><span><%= menu.qty %></span></div>
               <span class="font-bold text-lg">₹ <%= menu.items.price * menu.qty %></span>
           </div>
           <% } %>
@@ -26,13 +23,6 @@
 
        <% if(user) {%>
        <div class="text-right">
-       <!-- <form action="/orders" method="POST" class="mt-4" id="payment-form">
-        <input type="text" name="phone" placeholder="Phone Number" class="border border-gray-400 p-2 w-1/2 mb-4">
-        <input type="text" name="address" placeholder="Address" class="border border-gray-400 p-2 w-1/2 mb-4">
-       <div>
-        <button type="submit" class="text-white bg-orange-500 hover:bg-orange-600 font-medium rounded-full text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 "> Order Now</button>
-        </div>
-       </form> -->
        <a href="/customer/orderplaced">
        <button type="submit" class="text-white font-medium font-bold bg-teal-500 hover:bg-teal-600 font-medium rounded-full text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 "> Order Now</button>
        </a>
@@ -47,7 +37,7 @@
        <%}%>
       </div>
       <% }else { %>
-  <div class="empty-cart py-8">
+  <div class="empty-cart py-2">
       <div class="container mx-auto text-center">
           <h1 class="text-3xl font-bold mb-2">Cart Empty 😒</h1>
           <p class="text-gray-400">You Probably haven't orderd yet.

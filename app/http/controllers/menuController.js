@@ -1,7 +1,8 @@
-const Menu= require('../../models/menu');
+const Menu= require('../../models/menucanteen');
 const Menuramjihatti = require('../../models/menuramjihatti');
-const Menuvan=require('../../models/menuvan')
-const Menushake=require('../../models/menushake')
+const Menuvan=require('../../models/menuchinese')
+const Menushake=require('../../models/menushake');
+const Menubindrapakode = require('../../models/menubindrapakode');
 function menuControllers()
 {
     return {
@@ -13,7 +14,7 @@ function menuControllers()
 
         async menuvan(req,res){
             const menuItems=await Menuvan.find()
-            res.render('menuvan',{menuItems:menuItems});
+            res.render('menuChineseCorner',{menuItems:menuItems});
         },
 
         async menuramjihatti(req,res){
@@ -24,6 +25,10 @@ function menuControllers()
         async menushake(req,res){
             const menuItems=await Menushake.find()
             res.render('menushake',{menuItems:menuItems});
+        },
+        async menubindrapakode(req,res){
+            const menuItems=await Menubindrapakode.find()
+            res.render('menubindrapakode',{menuItems:menuItems});
         }
     }
 }

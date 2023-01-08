@@ -10,4 +10,4 @@ const menuSchema=new Schema({
 })
 
 
-module.exports=mongoose.model('Menuramjihatti',menuSchema)
+module.exports=mongoose.model('Menubindrapakode',menuSchema)

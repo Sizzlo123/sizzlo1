@@ -1,13 +1,10 @@
-<section class="orders light-section px-16">
-        <div class="container mx-auto pt-12">
-            
+<section class="orders light-section">
             <% if(messages.success){ %>
             <div id="success-alert" class="flex items-center bg-green-500 text-white text-sm font-bold px-4 py-3" role="alert">
                 <i class="fa-solid fa-info"></i>
                 <p class="px-4"><%= messages.success %></p>
             </div>
             <% } %>
-           
                 <% if(orders.length){ %>
                     <h1 class="font-bold text-lg mb-4">All orders</h1>
                     <table class="w-full table-auto bg-white">
@@ -15,11 +12,12 @@
                             <tr>
                                 <th class="px-4 py-2 text-left">Orders</th>
                                 <th class="px-4 py-2 text-left">Phone</th>
+                                <th class="px-4 py-2 text-left">Items</th>
+                                <th class="px-4 py-2 text-left">Special Instructions</th>
                                 <th class="px-4 py-2 text-left">Address</th>
                                 <th class="px-4 py-2 text-left">Time</th> 
                             </tr>
                         </thead>
-                
                         <tbody>
                     <% orders.forEach(function(order) { %>
                 <tr>
@@ -28,6 +26,23 @@
                     </td>
                     <td class="border px-4 py-2">
                         <%=order.phone %>
+                    </td>
+                    <td class="border px-4 py-2 w-32">
+                        <!-- <%  function renderItems(items) {
+                            let parsedItems = Object.values(items)
+                            return parsedItems.map((menuItem) => {
+                                return `
+                                     ${ menuItem.items.restaurant_name}:- ${ menuItem.items.name } - ${ menuItem.qty} pcs
+                                `
+                            })
+                          } %> -->
+
+                          <%= renderItems(order.items) %>
+                          <br>
+                        <!-- <%=order.items.name %> -->
+                    </td>
+                    <td class="border px-4 py-2">
+                        <%=order.specialInstructions%>
                     </td>
                     <td class="border px-4 py-2">
                         <%=order.address %>
@@ -56,3 +71,18 @@
         </table>
         </div>
 </section>
+
+<script>
+     function renderItems(items) {
+        let parsedItems = Object.values(items)
+        return parsedItems.map((menuItem) => {
+            return `
+                 <p>${ menuItem.items.restaurant_name}:- ${ menuItem.items.name } - ${ menuItem.qty } pcs</p><br>
+            `
+        })
+      }
+</script>
+
+
+
+

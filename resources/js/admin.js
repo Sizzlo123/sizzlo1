@@ -23,7 +23,7 @@ export function initAdmin(socket) {
         let parsedItems = Object.values(items)
         return parsedItems.map((menuItem) => {
             return `
-                 <p>${ menuItem.items.name } - ${ menuItem.qty } pcs </p>
+                 <p>${ menuItem.items.restaurant_name}:- ${ menuItem.items.name } - ${ menuItem.qty } pcs <br> </p>
             `
         }).join('')
       }
@@ -44,7 +44,7 @@ export function initAdmin(socket) {
         return orders.map(order => {
             return `
                 <tr>
-                <td class="border px-4 py-2 text-green-900">
+                <td class="border px-4 py-2 text-green-600">
                     <p>${ order._id }</p>
                     <div>${ renderItems(order.items) }</div>
                 </td>

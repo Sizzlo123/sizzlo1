@@ -29,9 +29,10 @@ function initRoutes(app)
 
 
     app.get('/menu',authguest,menuController().index)
-    app.get('/menu-van',authguest,menuController().menuvan)
+    app.get('/menu-chineseCorner',authguest,menuController().menuvan)
     app.get('/menu-ramjihatti',authguest,menuController().menuramjihatti)
     app.get('/menu-shakes',authguest,menuController().menushake)
+    app.get('/menu-bindrapakode',authguest,menuController().menubindrapakode)
 
 
     app.get('/cart',authguest,cartController().index)
@@ -44,6 +45,7 @@ function initRoutes(app)
     app.get('/customer/notlogin',orderController().notlogin)
 
     app.get('/customer/orderplaced',orderplacedController().index)
+    app.get('/terms-and-conditions',orderplacedController().terms)
 
     //admin routes
     app.get('/admin/orders',admin, adminorderController().index)
