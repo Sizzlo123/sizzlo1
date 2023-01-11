@@ -276,11 +276,33 @@
         <div class="flex justify-between items-center">
           <span class="text-3xl font-bold text-gray-900">₹<%=menuItems.price%></span>
           <a data-menu="<%= JSON.stringify(menuItems)%>" 
-              class="add-to-cart cursor-pointer text-white bg-teal-500 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium font-bold rounded-lg text-sm px-5 py-2.5 text-center">Add to cart</a>
+            class="add-to-cart cursor-pointer text-white bg-teal-500 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium font-bold rounded-lg text-sm px-5 py-2.5 text-center">Add to cart</a>
+          <!-- <a data-menu="<%= JSON.stringify(menuItems)%>" 
+              class="add-to-cart cursor-pointer text-white bg-teal-500 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium font-bold rounded-lg text-sm px-5 py-2.5 text-center">Add to cart</a> -->
+              <!-- <div class="flex bg-teal-500   rounded-lg text-white focus:outline-none">
+                <div data-menu="<%= JSON.stringify(menuItems)%>" class="delete-to-cart border-r cursor-pointer rounded-lg hover:bg-teal-600 flex item-center justify-center "><span class="px-4 text-2xl py-1.5">-</span></div> -->
+<!--                
+                <div data-menu="<%= JSON.stringify(menuItems)%>"class="add-cart flex item-center justify-center"><span data-menu="<%= JSON.stringify(menuItems)%>"class="add-cart px-2 py-1.5 text-lg"><%= session.cart? session.cart.totalQty: 'Add' %></span></div> -->
+                
+                <!-- <div data-menu="<%= JSON.stringify(menuItems)%>" class="add-to-cart cursor-pointer hover:bg-teal-600 rounded-lg flex item-center justify-center"><span class="px-4 py-1.5 text-2xl">+</span></div> -->
+              <!-- </div> -->
       </div>
+      <!-- <div class="flex justify-between items-center">
+        <a data-menu="<%= JSON.stringify(menuItems)%>" 
+            class="delete-to-cart cursor-pointer text-white bg-teal-500 hover:bg-teal-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium font-bold rounded-lg text-sm px-5 py-2.5 text-center">Delete to cart</a>
+    </div> -->
       </div>
     </div>
     <%})%>
     </div>
   
+
+    <div>
+  <select name="membership" id="membership">
+  <option value="1">1</option>
+  <option value="1">2</option>
+  <option value="silver" selected>3</option>
+  <option value="Gold">4</option>
+</select>
+    </div>
     </section>

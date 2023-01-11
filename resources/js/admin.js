@@ -22,9 +22,11 @@ export function initAdmin(socket) {
     function renderItems(items) {
         let parsedItems = Object.values(items)
         return parsedItems.map((menuItem) => {
+            if(menuItem.qty!=0){
             return `
                  <p>${ menuItem.items.restaurant_name}:- ${ menuItem.items.name } - ${ menuItem.qty } pcs <br> </p>
             `
+            }
         }).join('')
       }
 

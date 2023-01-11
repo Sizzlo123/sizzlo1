@@ -37,6 +37,8 @@ function initRoutes(app)
 
     app.get('/cart',authguest,cartController().index)
     app.post('/update-cart',cartController().update)
+    app.post('/update-delete-cart',cartController().updatedelete)
+    app.post('/delete-cart-items',cartController().deleteCartitems)
 
     //customer routes
     app.post('/orders',auth,orderController().store)

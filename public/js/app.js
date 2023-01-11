@@ -39,7 +39,9 @@ function initAdmin(socket) {
   function renderItems(items) {
     var parsedItems = Object.values(items);
     return parsedItems.map(function (menuItem) {
-      return "\n                 <p>".concat(menuItem.items.restaurant_name, ":- ").concat(menuItem.items.name, " - ").concat(menuItem.qty, " pcs <br> </p>\n            ");
+      if (menuItem.qty != 0) {
+        return "\n                 <p>".concat(menuItem.items.restaurant_name, ":- ").concat(menuItem.items.name, " - ").concat(menuItem.qty, " pcs <br> </p>\n            ");
+      }
     }).join('');
   }
 
@@ -98,13 +100,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var addToCart = document.querySelectorAll('.add-to-cart');
+var deleteToCart = document.querySelectorAll('.delete-to-cart');
+var deletetotal = document.querySelectorAll('.delete-total');
 var cartCounter = document.querySelector('.cartCounter');
 
 function updateCart(menuItems) {
   axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/update-cart', menuItems).then(function (res) {
     // console.log(res.data.data)
     // console.log(cartCounter)
-    cartCounter.innerText = res.data.data;
+    // let addcart=document.querySelector(".add-cart")
+    cartCounter.innerText = res.data.data; //addcart.innerText=res.data.data
+
+    console.log(res.data.itemQty);
     new (noty__WEBPACK_IMPORTED_MODULE_1___default())({
       type: 'success',
       timeout: 1000,
@@ -123,6 +130,71 @@ function updateCart(menuItems) {
   });
 }
 
+function updateDeleteCart(menuItems) {
+  axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/update-delete-cart', menuItems).then(function (res) {
+    // console.log(res.data.data)
+    // console.log(cartCounter)
+    cartCounter.innerText = res.data.data; // addcart.innerText=res.data.itemQty
+    // console.log(res.data.itemQty);   
+    // console.log(res)
+
+    new (noty__WEBPACK_IMPORTED_MODULE_1___default())({
+      type: 'success',
+      timeout: 1000,
+      layout: 'topRight',
+      text: 'Item Deleted to cart',
+      progressBar: false
+    }).show();
+  })["catch"](function (err) {
+    new (noty__WEBPACK_IMPORTED_MODULE_1___default())({
+      type: 'success',
+      timeout: 1000,
+      layout: 'topRight',
+      text: 'Something Went Wrong',
+      progressBar: false
+    }).show();
+  });
+}
+
+function deletecartitems(menuItems) {
+  axios__WEBPACK_IMPORTED_MODULE_0__["default"].post('/delete-cart-items', menuItems).then(function (res) {
+    // console.log(res.data.data)
+    // console.log(cartCounter)
+    cartCounter.innerText = res.data.data; // addcart.innerText="Add" 
+    // console.log(res.data.itemQty); 
+
+    new (noty__WEBPACK_IMPORTED_MODULE_1___default())({
+      type: 'success',
+      timeout: 1000,
+      layout: 'topRight',
+      text: 'Item Deleted to cart',
+      progressBar: false
+    }).show();
+  })["catch"](function (err) {
+    new (noty__WEBPACK_IMPORTED_MODULE_1___default())({
+      type: 'success',
+      timeout: 1000,
+      layout: 'topRight',
+      text: 'Something Went Wrong',
+      progressBar: false
+    }).show();
+  });
+}
+
+deletetotal.forEach(function (btn) {
+  btn.addEventListener('click', function (e) {
+    var menuItems = JSON.parse(btn.dataset.menu);
+    deletecartitems(menuItems); // console.log(e);
+    // console.log(menuItems)
+  });
+});
+deleteToCart.forEach(function (btn) {
+  btn.addEventListener('click', function (e) {
+    var menuItems = JSON.parse(btn.dataset.menu);
+    updateDeleteCart(menuItems); // console.log(e);
+    // console.log(menuItems)
+  });
+});
 addToCart.forEach(function (btn) {
   btn.addEventListener('click', function (e) {
     var menuItems = JSON.parse(btn.dataset.menu);
@@ -190,7 +262,7 @@ socket.on('orderUpdated', function (data) {
   var updatedOrder = _objectSpread({}, order);
 
   updatedOrder.updatedAt = moment__WEBPACK_IMPORTED_MODULE_3___default()().format();
-  updatedOrder.status = data.status; // console.log(data)
+  updatedOrder.status = data.status; // console.log(data.status)
 
   updateStatus(updatedOrder);
   new (noty__WEBPACK_IMPORTED_MODULE_1___default())({
@@ -200,6 +272,10 @@ socket.on('orderUpdated', function (data) {
     text: 'Order Updated',
     progressBar: false
   }).show();
+
+  if (data.status == "completed") {
+    window.location.replace("/menu");
+  }
 });
 
 /***/ }),

@@ -4,13 +4,19 @@ import {initAdmin} from './admin'
 import moment from 'moment'
 
 let addToCart=document.querySelectorAll('.add-to-cart')
+let deleteToCart=document.querySelectorAll('.delete-to-cart')
+let deletetotal=document.querySelectorAll('.delete-total')
 let cartCounter=document.querySelector('.cartCounter')
+
 
 function updateCart(menuItems){
     axios.post('/update-cart',menuItems).then(res=>{
         // console.log(res.data.data)
         // console.log(cartCounter)
-        cartCounter.innerText=res.data.data   
+       // let addcart=document.querySelector(".add-cart")
+        cartCounter.innerText=res.data.data
+        //addcart.innerText=res.data.data
+        console.log(res.data.itemQty);    
         new Noty({
             type: 'success',
             timeout: 1000,
@@ -29,14 +35,89 @@ function updateCart(menuItems){
      })
 }
 
-addToCart.forEach((btn) =>{
+
+function updateDeleteCart(menuItems){
+    axios.post('/update-delete-cart',menuItems).then(res=>{
+        // console.log(res.data.data)
+        // console.log(cartCounter)
+        cartCounter.innerText=res.data.data
+        // addcart.innerText=res.data.itemQty
+        // console.log(res.data.itemQty);   
+        // console.log(res)
+        new Noty({
+            type: 'success',
+            timeout: 1000,
+            layout: 'topRight',
+            text: 'Item Deleted to cart',
+            progressBar: false,
+        }).show();
+    }).catch(err=>{
+        new Noty({
+            type: 'success',
+            timeout: 1000,
+            layout: 'topRight',
+            text: 'Something Went Wrong',
+            progressBar: false,
+        }).show();
+     })
+}
+
+
+function deletecartitems(menuItems){
+    axios.post('/delete-cart-items',menuItems).then(res=>{
+        // console.log(res.data.data)
+        // console.log(cartCounter)
+        cartCounter.innerText=res.data.data 
+        // addcart.innerText="Add" 
+        // console.log(res.data.itemQty); 
+        new Noty({
+            type: 'success',
+            timeout: 1000,
+            layout: 'topRight',
+            text: 'Item Deleted to cart',
+            progressBar: false,
+        }).show();
+    }).catch(err=>{
+        new Noty({
+            type: 'success',
+            timeout: 1000,
+            layout: 'topRight',
+            text: 'Something Went Wrong',
+            progressBar: false,
+        }).show();
+     })
+}
+
+deletetotal.forEach((btn) =>{
     btn.addEventListener('click',(e)=>{
+        let menuItems=JSON.parse(btn.dataset.menu)
+        deletecartitems(menuItems)
+    
+        // console.log(e);
+        // console.log(menuItems)
+    })
+})
+
+deleteToCart.forEach((btn) =>{
+    btn.addEventListener('click',(e)=>{
+        let menuItems=JSON.parse(btn.dataset.menu)
+        updateDeleteCart(menuItems)
+    
+        // console.log(e);
+        // console.log(menuItems)
+    })
+})
+
+addToCart.forEach((btn) =>{
+   btn.addEventListener('click',(e)=>{
         let menuItems=JSON.parse(btn.dataset.menu)
         updateCart(menuItems)
         // console.log(e);
         // console.log(menuItems)
     })
 })
+
+
 
 
 
@@ -97,7 +178,7 @@ socket.on('orderUpdated',(data)=>{
     const updatedOrder= {...order}
     updatedOrder.updatedAt=moment().format()
     updatedOrder.status=data.status
-    // console.log(data)
+    // console.log(data.status)
     updateStatus(updatedOrder)
     new Noty({
         type: 'success',
@@ -107,4 +188,7 @@ socket.on('orderUpdated',(data)=>{
         progressBar: false,
     }).show();
 
+    if(data.status=="completed"){
+        window.location.replace("/menu")
+    }
 })
